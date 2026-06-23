@@ -62,6 +62,26 @@ In short:
 
 ---
 
+## Goals and roadmap
+
+The long-term goal is for Atomic Heart Menu to become effectively
+**CyberEngineTweaks but for Atomic Heart**: a deep, do-anything toolkit built on
+the game's own Unreal Engine 4 reflection and `ProcessEvent`, rather than just a
+fixed list of cheat toggles.
+
+Planned and in-progress directions:
+- **Object and actor spawning**: spawn, configure, and control game objects,
+  items, and entities at will.
+- **In-game level design tools**: place, move, and edit world geometry and actors
+  to build or reshape scenes live.
+- A steadily growing, extensible feature set as SDK coverage expands.
+
+This is a beta and a solo, amateur project, so the roadmap is aspirational and
+timelines are loose. Contributions are welcome, see
+[`CONTRIBUTING.md`](CONTRIBUTING.md).
+
+---
+
 ## Detected on your machine
 
 | | |
