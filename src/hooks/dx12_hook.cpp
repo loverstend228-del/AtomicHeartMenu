@@ -396,6 +396,24 @@ namespace
         ImGuiIO& io = ImGui::GetIO();
         io.IniFilename = nullptr;
         ImGui::StyleColorsDark();
+
+        // --- Кириллический шрифт (UTF-8) ---
+        ImFontConfig fontCfg;
+        fontCfg.OversampleH = 2;
+        fontCfg.OversampleV = 2;
+        static const ImWchar cyrillicRanges[] =
+        {
+            0x0020, 0x00FF, // Latin + Basic Latin
+            0x0400, 0x044F, // Кириллица (А-я)
+            0x0450, 0x045F, // Дополнительная кириллица
+            0,
+        };
+        // Пробуем системный Arial; если файл не найден — ImGui откатится на встроенный шрифт
+        ImFont* cyrFont = io.Fonts->AddFontFromFileTTF(
+            "C:\\Windows\\Fonts\\arial.ttf", 16.0f, &fontCfg, cyrillicRanges);
+        if (!cyrFont)
+            io.Fonts->AddFontDefault(); // fallback
+
         ImGui_ImplWin32_Init(g_hwnd);
 
         ImGui_ImplDX12_InitInfo init{};
