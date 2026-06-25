@@ -59,6 +59,11 @@ target_compile_definitions(AtomicHeartMenu PRIVATE
 
 target_compile_options(AtomicHeartMenu PRIVATE $<$<COMPILE_LANGUAGE:CXX>:/EHa>)
 
+# Кириллица в строковых литералах — нужен UTF-8 для MSVC
+if (MSVC)
+    target_compile_options(AtomicHeartMenu PRIVATE /utf-8)
+endif()
+
 target_link_libraries(AtomicHeartMenu PRIVATE d3d12 dxgi dwmapi Psapi)
 
 # Final artifact: AtomicHeartMenu.dll. Pin every config to bin\ so the multi-config
